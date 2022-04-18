@@ -17,7 +17,7 @@ import android.util.Log;
 import com.facebook.react.bridge.*;
 import java.util.ArrayList;
 
-class TagTechnologyRequest {
+public class TagTechnologyRequest {
     static String LOG_TAG = "NfcManager-tech";
     Tag mTag;
     TagTechnology mTech;
