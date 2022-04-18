@@ -93,6 +93,10 @@ class NfcManager extends ReactContextBaseJavaModule implements ActivityEventList
         Log.d(LOG_TAG, "NfcManager created");
     }
 
+    public TagTechnologyRequest getTechRequest() {
+        return techRequest;
+    }
+
     @Override
     public String getName() {
         return "NfcManager";
