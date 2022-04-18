@@ -38,7 +38,7 @@ import org.json.JSONException;
 
 import java.util.*;
 
-class NfcManager extends ReactContextBaseJavaModule implements ActivityEventListener, LifecycleEventListener {
+public class NfcManager extends ReactContextBaseJavaModule implements ActivityEventListener, LifecycleEventListener {
     private static NfcManager instance;
     private static final String LOG_TAG = "ReactNativeNfcManager";
     private final List<IntentFilter> intentFilters = new ArrayList<IntentFilter>();
