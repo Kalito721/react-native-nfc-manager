@@ -93,8 +93,20 @@ public class NfcManager extends ReactContextBaseJavaModule implements ActivityEv
         Log.d(LOG_TAG, "NfcManager created");
     }
 
-    public TagTechnologyRequest getTechRequest() {
-        return techRequest;
+    public IsoDep getIsoDep () {
+      if(techRequest != null) {
+        try {
+          String tech = techRequest.getTechType();
+          TagTechnology baseTechHandle = techRequest.getTechHandle();
+          if (tech.equals("IsoDep")) {
+            IsoDep techHandle = (IsoDep) baseTechHandle;
+            return techHandle;
+          }
+        } catch (Exception ex) {
+          return null;
+        }
+      }
+      return null;
     }
 
     @Override
