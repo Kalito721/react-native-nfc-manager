@@ -39,6 +39,7 @@ import org.json.JSONException;
 import java.util.*;
 
 class NfcManager extends ReactContextBaseJavaModule implements ActivityEventListener, LifecycleEventListener {
+    private static NfcManager instance;
     private static final String LOG_TAG = "ReactNativeNfcManager";
     private final List<IntentFilter> intentFilters = new ArrayList<IntentFilter>();
     private final ArrayList<String[]> techLists = new ArrayList<String[]>();
@@ -78,12 +79,17 @@ class NfcManager extends ReactContextBaseJavaModule implements ActivityEventList
         }
     }
 
+    public static NfcManager getInstance(){
+        return instance;
+    }
+
     public NfcManager(ReactApplicationContext reactContext) {
         super(reactContext);
         context = reactContext;
         this.reactContext = reactContext;
         reactContext.addActivityEventListener(this);
         reactContext.addLifecycleEventListener(this);
+        instance = this;
         Log.d(LOG_TAG, "NfcManager created");
     }
 
